@@ -33,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 	{
 	str[l] = s1[l];
 	}
-	if (l > i)
+	if (l >= i)
 	{
 	str[l] = s2[j];
 	j++;
