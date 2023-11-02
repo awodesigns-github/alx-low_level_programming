@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * _strdup - returns a pointer to a new duplicate string
@@ -22,7 +23,7 @@ char *_strdup(char *str)
 	while (counter2 < counter1)
 	{
 	lestring[counter2] = str[counter2];
-	counter2++
+	counter2++;
 	}
 	lestring[counter2] = '\0';
 	return (lestring);
