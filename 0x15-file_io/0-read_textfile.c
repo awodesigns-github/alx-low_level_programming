@@ -17,23 +17,30 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 		return (0);
-	fd = open(filename, O_CREAT | O_RDWR);
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
 
 	/* allocate memory */
-	size = malloc(letters * sizeof(int));
+	size = malloc(letters * sizeof(char));
 	if (size == NULL)
+	{
+		free(size);
+		close(fd);
 		return (0);
+	}
 
 	/* reading the file */
 	file_r = read(fd, size, letters);
+	close(fd);
 	if (file_r == -1)
+	{
+		free(size);
 		return (0);
-
-	/* writting to the file */
-	file_w = write(fd, size, letters);
-	if (file_w == -1)
+	}
+	file_w = write(STDOUT_FILENO, size, file_r);
+	free(size);
+	if (file_r != file_w)
 		return (0);
-	return (file_r);
+	return (file_w);
 }
