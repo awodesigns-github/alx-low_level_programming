@@ -10,15 +10,13 @@ int main(void)
 
 	for (; i <= 57; i++)
 	{
-		if (i == 57)
+		putchar(i);
+		if (i != 57)
 		{
-			putchar(i);
-		} else
-		{
-			putchar(i);
 			putchar(44);
 			putchar(32);
 		}
 	}
+	putchar(10);
 	return (0);
 }
