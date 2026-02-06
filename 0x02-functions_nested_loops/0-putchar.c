@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
 * main - Main Entry point
@@ -7,13 +6,13 @@
 */
 int main(void)
 {
-	int i;
+	int i = 0;
 	char *word = "_putchar";
-	int length = strlen(word);
 
-	for (i = 0; i < length; i++)
+	while (word[i] != '\0')
 	{
 		_putchar(word[i]);
+		i++;
 	}
 	_putchar(32);
 	return (0);
